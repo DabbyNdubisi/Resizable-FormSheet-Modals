@@ -62,7 +62,7 @@ class NavigationModalResizer: Resizer {
 		lastSize = newSize
 		var contentSize = preferredContentSize(for: newSize)
 		// account for nav bar
-		contentSize.height -= 44.0
+		contentSize.height -= navigationController.navigationBar.isHidden ? 0.00 : navigationController.navigationBar.frame.height
 		
 		// animate resize process
 		let animator = UIViewPropertyAnimator(duration: 0.5, curve: .easeIn) {
